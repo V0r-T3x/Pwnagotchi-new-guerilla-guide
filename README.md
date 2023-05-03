@@ -292,17 +292,17 @@ ui.web.on_frame = ""
 In release 1.5.5 the AI won't start by itself. The expected behaviour for Pwnagorchi would be to start in AUTO mode and switch to AI as soon as the Neural network has been loaded.
 
 ```bash
-sudo pip3 install -v --upgrade numpy
+armv6
+wget https://www.piwheels.org/simple/numpy/numpy-1.21.4-cp37-cp37m-linux_armv6l.whl#sha256=826319c22f05d7b50c3637af5563234edbb02f5634a08d314d21ef00271a32fe
+
+sudo pip3 install https://www.piwheels.org/simple/numpy/numpy-1.21.4-cp37-cp37m-linux_armv6l.whl
+
+armv7
+
+https://www.piwheels.org/simple/numpy/numpy-1.21.4-cp37-cp37m-linux_armv7l.whl#sha256=826319c22f05d7b50c3637af5563234edbb02f5634a08d314d21ef00271a32fe
+
+https://www.piwheels.org/simple/numpy/numpy-1.21.4-cp37-cp37m-linux_armv7l.whl
 ```
-
-it taaaaakes a while, it really does. go clean your room, garage, neighbour's garage and fix your life in the meantime (2h?)
-
-if you get a timeout error try:
-
-```bash
-sudo pip3 install --default-timeout=100 -v --upgrade numpy
-```
-
 if pwnagotchi still doesnt switch to AI after ~45min
 
 ```bash
