@@ -127,6 +127,44 @@ Execute this in Powershell:
 
 *if applicable: enable mobilehotspot on pc and turn off power saving mode for your hotspot or your wireless interface.*
 
+### 2.5 Connecting more than one pwnagotchi to a pc  
+
+1. Configure the usb0 file on the new pwnagotchi to connect:
+
+```bash
+nano /etc/network/interfaces.d/usb0-cfg
+```
+
+2. Modify this file:
+
+```bash
+allow-hotplug usb0
+iface usb0 inet static
+  address 10.0.0.2
+  netmask 255.255.255.0
+  network 10.0.0.0
+  broadcast 10.0.0.255
+  gateway 10.0.0.1
+  metric 20
+```
+
+3. With the ip of your choice:
+
+```bash
+allow-hotplug usb0
+iface usb0 inet static
+  address 192.168.1.2
+  netmask 255.255.255.0
+  network 192.168.1.0
+  broadcast 192.168.1.255
+  gateway 192.168.1.1
+  metric 20
+```
+
+5. Reboot.
+
+4. Configure your network connection with the new ip, and you can now connect more than one pwnagotchi to your pc.
+
 ## 3 Upload initial config.toml
 
 1. Prepare your config.toml according to the official guide.
