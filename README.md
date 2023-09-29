@@ -591,18 +591,32 @@ update it with this:
 
 - wpa-sec2  #It will only do a check and make .gps.cracked files from the downloaded .cracked.potfile after it downloads from wpa-sec
 <https://github.com/xenDE/pwnagotchi-tools/issues/1>
+```bash
    #yml config for it below. NOTE! i didnt test this plugin yet, you need to translate it to toml before you put it in a config
           wpa-sec2:
             enabled: false
             api_key: ''
             api_url: "https://wpa-sec.stanev.org"
             download_results: true
+```
+
+- banthex.py a clone of wpa-sec2 
+<https://github.com/V0r-T3x/pwnagotchi_plugins/blob/main/plugins/banthex.py>
 
 - watchdog.py 1.0.0
 <https://github.com/dadav/pwnagotchi-custom-plugins/blob/master/watchdog.py>
 
 - paw-gps.py 1.0.1
 <https://github.com/evilsocket/pwnagotchi/pull/1054>
+
+- Fancygotchi, a complete theme manager for pwnagotchi
+<https://github.com/V0r-T3x/fancygotchi>
+
+- crack_house.py 1.0.0 a plugin to show the nearest cracked AP (based on display_password, act like it if no cracked network at proximity)
+<https://github.com/V0r-T3x/pwnagotchi_plugins/blob/main/plugins/crack_house.py>
+
+- fix_region.py 1.0 a plugin to unlock the channel 12 or 13 in certain world region
+<https://github.com/V0r-T3x/pwnagotchi_plugins/blob/main/plugins/fix_region.py>
 
 ## 14 known bugs
 
