@@ -399,6 +399,59 @@ fs.memory.mounts.log.enabled = true
 fs.memory.mounts.data.enabled = true
 ```
 
+### 10.3 ATGM336H GPS Module on a Raspberry Pi zero 2
+
+Connections:  
+GPS ----> RPI02w  
+VCC ----> 5V  
+GND ----> GND  
+TX  ----> RX GPIO 15  
+RX  ----> TX GPIO 14  
+PPS ----> PWM GPIO 18  
+
+Configure the serial connection:
+```bash
+sudo raspi-config
+```
+Disable serial terminal.  
+Enabled hardware serial.  
+
+Install dependencies:
+```bash
+sudo apt-get install gpsd gpsd-clients
+```
+
+Set the baud rate to 9600:
+
+```bash
+sudo stty -F /dev/serial0 raw 9600 cs8 clocal -cstopb
+```
+Config gpsd to uses the correct serial device:
+
+```bash
+sudo nano /etc/default/gpsd
+```
+Look for:
+    `DEVICES=""`
+and change it to:
+    `DEVICES="/dev/serial0"`
+Reboot
+
+Verify with:
+```bash
+gpsmon 127.0.0.1:2947
+gpsmon /dev/serial0
+cgps 127.0.0.1:2947
+cgps /dev/serial0
+```
+
+Configure it inside `/etc/pwnagotchi/config.toml`:
+```bash
+main.plugins.gps.enabled = true
+main.plugins.gps.speed = 9600
+main.plugins.gps.device = "/dev/serial0"
+```
+
 ## 11 Install additional plugins
 
 ### 11.1 Install procedure
